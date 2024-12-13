@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+model_reservas_instalaciones_access_socios,access_reservas_instalaciones_socios,model_reservas_instalaciones,base.group_user,1,0,0,0
+model_reservas_instalaciones_access_personal,access_reservas_instalaciones_personal,model_reservas_instalaciones,base.group_system,1,1,1,1

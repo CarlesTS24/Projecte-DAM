@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Vista de formulario -->
+    <record id="view_reservas_instalaciones_form" model="ir.ui.view">
+        <field name="name">reservas.instalaciones.form</field>
+        <field name="model">reservas.instalaciones</field>
+        <field name="arch" type="xml">
+            <form string="Reserva de Instalación">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="facility_id"/>
+                        <field name="start_datetime"/>
+                        <field name="end_datetime"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista de arbol -->
+    <record id="view_reservas_instalaciones_tree" model="ir.ui.view">
+        <field name="name">reservas.instalaciones.tree</field>
+        <field name="model">reservas.instalaciones</field>
+        <field name="arch" type="xml">
+            <tree string="Reservas de Instalaciones">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="facility_id"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de calendario -->
+    <record id="view_reservas_instalaciones_calendar" model="ir.ui.view">
+        <field name="name">reservas.instalaciones.calendar</field>
+        <field name="model">reservas.instalaciones</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Reservas" date_start="start_datetime" date_stop="end_datetime">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="facility_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+</odoo>

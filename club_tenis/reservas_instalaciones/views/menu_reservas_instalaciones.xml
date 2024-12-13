@@ -1,0 +1,9 @@
+<!-- reservas_instalaciones/views/menu_reservas_instalaciones.xml -->
+<odoo>
+    <!-- Menú para Reservas de Instalaciones bajo el menú raíz Club de Tenis -->
+    <menuitem id="menu_reservas_instalaciones" 
+              name="Reservas de Instalaciones" 
+              parent="instalaciones_deportivas.menu_club_tenis_root" 
+              action="action_reservas_instalaciones"
+              sequence="20"/>
+</odoo>

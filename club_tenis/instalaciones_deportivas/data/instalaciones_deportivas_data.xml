@@ -1,0 +1,87 @@
+<odoo>
+    <record id="tenis_1" model="instalaciones.deportivas">
+        <field name="name">Tenis 1</field>
+        <field name="facility_type">tennis</field>
+        <field name="court_number">1</field>
+        <field name="surface_type">clay</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="tenis_2" model="instalaciones.deportivas">
+        <field name="name">Tenis 2</field>
+        <field name="facility_type">tennis</field>
+        <field name="court_number">2</field>
+        <field name="surface_type">clay</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="tenis_3" model="instalaciones.deportivas">
+        <field name="name">Tenis 3</field>
+        <field name="facility_type">tennis</field>
+        <field name="court_number">3</field>
+        <field name="surface_type">clay</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="tenis_4" model="instalaciones.deportivas">
+        <field name="name">Tenis 4</field>
+        <field name="facility_type">tennis</field>
+        <field name="court_number">4</field>
+        <field name="surface_type">hard</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="tenis_5" model="instalaciones.deportivas">
+        <field name="name">Tenis 5</field>
+        <field name="facility_type">tennis</field>
+        <field name="court_number">5</field>
+        <field name="surface_type">hard</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="tenis_6" model="instalaciones.deportivas">
+        <field name="name">Tenis 6</field>
+        <field name="facility_type">tennis</field>
+        <field name="court_number">6</field>
+        <field name="surface_type">clay</field>
+        <field name="capacity">1</field>
+    </record>
+    
+    <record id="padel_cristal" model="instalaciones.deportivas">
+        <field name="name">Pádel Cristal</field>
+        <field name="facility_type">padel</field>
+        <field name="wall_material">glass</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="padel_1" model="instalaciones.deportivas">
+        <field name="name">Pádel 1</field>
+        <field name="facility_type">padel</field>
+        <field name="wall_material">stone</field>
+        <field name="capacity">1</field>
+    </record>
+    <record id="padel_2" model="instalaciones.deportivas">
+        <field name="name">Pádel 2</field>
+        <field name="facility_type">padel</field>
+        <field name="wall_material">stone</field>
+        <field name="capacity">1</field>
+    </record>
+
+    <record id="futbito" model="instalaciones.deportivas">
+        <field name="name">Futbito</field>
+        <field name="facility_type">futsal</field>
+        <field name="capacity">1</field>
+    </record>
+
+    <record id="fronton" model="instalaciones.deportivas">
+        <field name="name">Frontón</field>
+        <field name="facility_type">fronton</field>
+        <field name="capacity">1</field>
+    </record>
+
+    <record id="gimnsaio" model="instalaciones.deportivas">
+        <field name="name">Gimnsaio</field>
+        <field name="facility_type">gym</field>
+        <field name="capacity">10</field>
+    </record>
+
+    <record id="spa" model="instalaciones.deportivas">
+        <field name="name">Spa</field>
+        <field name="facility_type">spa</field>
+        <field name="capacity">5</field>
+    </record>
+</odoo>

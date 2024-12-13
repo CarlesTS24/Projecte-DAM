@@ -1,0 +1,25 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Regla de acceso para solo administradores -->
+        <record id="instalaciones_deportivas_access_admin" model="ir.model.access">
+            <field name="name">access_instalaciones_deportivas_admin</field>
+            <field name="model_id" ref="model_instalaciones_deportivas"/>
+            <field name="group_id" ref="base.group_system"/>  <!-- Solo el grupo de administradores -->
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Regla de acceso para todos los usuarios -->
+        <record id="instalaciones_deportivas_access_user" model="ir.model.access">
+            <field name="name">access_instalaciones_deportivas_user</field>
+            <field name="model_id" ref="model_instalaciones_deportivas"/>
+            <field name="group_id" ref="base.group_user"/>  <!-- Todos los usuarios -->
+            <field name="perm_read" eval="True"/>  <!-- Solo lectura para los usuarios -->
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</odoo>

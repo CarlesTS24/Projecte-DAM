@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="ir_cron_auto_complete_reservations" model="ir.cron">
+            <field name="name">Actualizar Reservas Completadas</field>
+            <field name="model_id" ref="model_reservas_instalaciones"/>
+            <field name="state">code</field>
+            <field name="code">model.auto_complete_reservations()</field>
+            <field name="interval_number">30</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

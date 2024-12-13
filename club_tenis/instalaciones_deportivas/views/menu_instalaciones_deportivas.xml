@@ -1,0 +1,13 @@
+<!-- instalaciones_deportivas/views/menu_instalaciones_deportivas.xml -->
+<odoo>
+    <!-- Menú Raíz: Club de Tenis -->
+    <menuitem id="menu_club_tenis_root" name="Club de Tenis" sequence="10"/>
+
+    <!-- Menú Subprincipal: Instancias de Instalaciones Deportivas -->
+    <menuitem id="menu_instalaciones_deportivas" name="Instalaciones Deportivas"
+              parent="menu_club_tenis_root" sequence="10"/>
+
+    <!-- Menú para la Lista de Instalaciones Deportivas -->
+    <menuitem id="menu_instalaciones_list" name="Listado de Instalaciones"
+              parent="menu_instalaciones_deportivas" action="action_instalaciones_deportivas" sequence="10"/>
+</odoo>

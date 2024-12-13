@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <!-- Definir la categoría del módulo -->
+        <record id="module_category_reservas" model="ir.module.category">
+            <field name="name">Reservas</field>
+            <field name="description">Categoría para el módulo de reservas de instalaciones</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Grupo Socios -->
+        <record id="group_socios" model="res.groups">
+            <field name="name">Socios</field>
+            <field name="category_id" ref="module_category_reservas"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Grupo Personal -->
+        <record id="group_personal" model="res.groups">
+            <field name="name">Personal</field>
+            <field name="category_id" ref="module_category_reservas"/>
+            <field name="implied_ids" eval="[(4, ref('group_socios'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+
+    <data>
+        <!-- Regla de acceso para el grupo Socios -->
+        <record id="reservas_user_rule" model="ir.rule">
+            <field name="name">Acceso a Reservas Propias para Socios</field>
+            <field name="model_id" ref="model_reservas_instalaciones"/>
+            <field name="domain_force">['|', ('user_id', '=', user.id), ('id', '=', False)]</field>  <!-- Los socios solo pueden ver sus reserva -->
+            <field name="groups" eval="[(4, ref('group_socios'))]"/>
+        </record>
+
+        <!-- Regla de acceso para el grupo Personal (administradores) -->
+        <record id="reservas_personal_rule" model="ir.rule">
+            <field name="name">Acceso a Reservas para Personal</field>
+            <field name="model_id" ref="model_reservas_instalaciones"/>
+            <field name="domain_force">[]</field>  <!-- Los administradores pueden ver todas las reservas -->
+            <field name="groups" eval="[(4, ref('group_personal'))]"/>
+        </record>
+    </data>
+</odoo>

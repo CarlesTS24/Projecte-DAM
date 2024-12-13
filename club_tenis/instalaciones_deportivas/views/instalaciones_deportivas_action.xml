@@ -1,0 +1,15 @@
+<!-- instalaciones_deportivas/views/instalaciones_deportivas_action.xml -->
+<odoo>
+    <!-- Acción para Instancias de Instalaciones Deportivas -->
+    <record id="action_instalaciones_deportivas" model="ir.actions.act_window">
+        <field name="name">Instalaciones Deportivas</field>
+        <field name="res_model">instalaciones.deportivas</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea tu primera instalación deportiva
+            </p>
+        </field>
+    </record>
+</odoo>

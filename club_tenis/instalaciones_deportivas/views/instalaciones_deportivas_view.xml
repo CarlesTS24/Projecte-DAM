@@ -1,0 +1,115 @@
+<!-- instalaciones_deportivas/views/instalaciones_deportivas_views.xml -->
+<odoo>
+    <!-- Vista Formulario -->
+    <record id="view_instalaciones_deportivas_form" model="ir.ui.view">
+        <field name="name">instalaciones.deportivas.form</field>
+        <field name="model">instalaciones.deportivas</field>
+        <field name="arch" type="xml">
+            <form string="Instalaciones Deportivas">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="facility_type"/>
+                        <field name="court_number" attrs="{'invisible': [('facility_type', '!=', 'tennis')]}"/>
+                        <field name="surface_type" attrs="{'invisible': [('facility_type', '!=', 'tennis')]}"/>
+                        <field name="wall_material" attrs="{'invisible': [('facility_type', '!=', 'padel')]}"/>
+                        <field name="capacity"/>
+                        <field name="state"/>
+                        <field name="image" widget="image" class="oe_avatar" options="{'preview_image': 'image'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Arbol -->
+    <record id="view_instalaciones_deportivas_tree" model="ir.ui.view">
+        <field name="name">instalaciones.deportivas.tree</field>
+        <field name="model">instalaciones.deportivas</field>
+        <field name="arch" type="xml">
+            <tree string="Instalaciones Deportivas">
+                <field name="name"/>
+                <field name="facility_type"/>
+                <field name="court_number"/>
+                <field name="surface_type"/>
+                <field name="wall_material"/>
+                <field name="capacity"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Kanban -->
+    <record id="view_instalaciones_deportivas_kanban" model="ir.ui.view">
+        <field name="name">instalaciones.deportivas.kanban</field>
+        <field name="model">instalaciones.deportivas</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="facility_type"/>
+                <field name="surface_type"/>
+                <field name="wall_material"/>
+                <field name="capacity"/>
+                <field name="state"/>
+                <field name="image"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_instalaciones_kanban">
+                            <t t-if="record.image.raw_value">
+                                <!-- Imagen de la instalación -->
+                                <t t-set="background_image" t-value="kanban_image('instalaciones.deportivas', 'image', record.id.raw_value)"/>
+                                <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{background_image}')">
+                                    <img class="o_kanban_image_inner_pic" t-att-alt="record.name.raw_value" t-att-src="kanban_image('instalaciones.deportivas', 'image', record.id.raw_value)"/>
+                                </div>
+                                <div class="o_kanban_image d-md-none" t-attf-style="background-image:url('#{background_image}')">
+                                    <img class="o_kanban_image_inner_pic" t-att-alt="record.name.raw_value" t-att-src="kanban_image('instalaciones.deportivas', 'image', record.id.raw_value)"/>
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <!-- Imagen por defecto si no hay imagen -->
+                                <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#)" role="img"/>
+                            </t>
+
+                            <!-- Cinta de estado: No disponible si está fuera de servicio -->
+                            <div class="ribbon ribbon-top-right" attrs="{'invisible': [('state', '=', 'available')]}">
+                                <span class="bg-warning">No disponible</span>
+                            </div>
+
+                            <div class="oe_kanban_details d-flex flex-column justify-content-between">
+                                <div>
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <ul>
+                                        <li t-if="record.facility_type.raw_value == 'tennis'">
+                                            <span>Superficie: </span>
+                                            <t t-esc="record.surface_type.raw_value"/>
+                                        </li>
+                                        <li t-if="record.facility_type.raw_value == 'padel'">
+                                            <span>Pared: </span>
+                                            <t t-esc="record.wall_material.raw_value"/>
+                                        </li>
+                                        <li t-if="record.facility_type.raw_value in ['gym', 'spa']">
+                                            <span>Capacidad: </span>
+                                            <t t-esc="record.capacity.raw_value"/>
+                                        </li>
+                                        <li>
+                                            <span>Estado: </span>
+                                            <t t-esc="record.state.raw_value"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left"/>
+                                    <div class="oe_kanban_bottom_right"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+</odoo>
